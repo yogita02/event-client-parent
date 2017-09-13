@@ -7,7 +7,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
 	<artifactId>system-event-utilities-parent</artifactId>
-	<version>1.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>System Event Utilities Parent</name>
 
 	<parent>
@@ -53,7 +53,7 @@
 		<io.springfox.version>2.6.1</io.springfox.version>
 		<maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
 		<jsonschema2pojo-maven-plugin.version>0.4.34</jsonschema2pojo-maven-plugin.version>
-
+		<build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
 	</properties>
 
 	<modules>
@@ -109,6 +109,12 @@
 				<groupId>com.dell.cpsd</groupId>
 				<artifactId>common-contract-enricher</artifactId>
 				<version>${com.dell.cpsd.common.messaging.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.dell.cpsd</groupId>
+				<artifactId>common-testing</artifactId>
+				<version>${com.dell.cpsd.common.messaging.version}</version>
+				<scope>test</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

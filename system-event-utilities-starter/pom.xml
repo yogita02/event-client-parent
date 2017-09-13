@@ -3,7 +3,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>system-event-utilities-starter</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>System Event Utilities Starter</name>
 	<description>System Event Utilities Starter</description>
@@ -11,7 +10,7 @@
 	<parent>
 		<groupId>com.dell.cpsd</groupId>
 		<artifactId>system-event-utilities-parent</artifactId>
-		<version>1.1-SNAPSHOT</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
 	<scm>
@@ -33,11 +32,12 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot.version}</version>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>${build-helper-maven-plugin.version}</version>
 				<executions>
 					<execution>
 						<id>add-test-source</id>
