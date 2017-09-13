@@ -2,12 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.dell.cpsd</groupId>
 	<artifactId>system-event-utilities-starter</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>Event Client Starter</name>
-	<description>Event Client Starter</description>
+	<name>System Event Utilities Starter</name>
+	<description>System Event Utilities Starter</description>
 
 	<parent>
 		<groupId>com.dell.cpsd</groupId>
@@ -15,60 +14,18 @@
 		<version>1.1-SNAPSHOT</version>
 	</parent>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<common-rabbitmq.version>2.0.0</common-rabbitmq.version>
-		<common-dependencies.version>1.2.0</common-dependencies.version>
-		<spring-boot-starter-test.version>1.5.1.RELEASE</spring-boot-starter-test.version>
-		<bean-validator.version>2.2.0-b10</bean-validator.version>
-		<commons-io.version>1.3.2</commons-io.version>
-		<maven-surefire-report-plugin.version>2.19.1</maven-surefire-report-plugin.version>
-		<maven-surefire-report-plugin.version>2.19.1</maven-surefire-report-plugin.version>
-		<maven-jxr-plugin.version>2.3</maven-jxr-plugin.version>
-		<reflections.version>0.9.10</reflections.version>
-	</properties>
+	<scm>
+		<connection>scm:git:git://github.com/dellemc-symphony/system-event-utilities-parent.git</connection>
+		<developerConnection>scm:git:git://github.com/dellemc-symphony/system-event-utilities-parent.git</developerConnection>
+		<url>https://github.com/dellemc-symphony/system-event-utilities-parent/tree/master</url>
+	</scm>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.dell.cpsd</groupId>
-			<artifactId>common-dependencies</artifactId>
-			<version>${common-dependencies.version}</version>
-			<scope>import</scope>
-			<type>pom</type>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<version>${spring-boot-starter-test.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<version>${spring-boot-starter-test.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.hk2.external</groupId>
-			<artifactId>bean-validator</artifactId>
-			<version>${bean-validator.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>${commons-io.version}</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
-		<dependency>
-			<groupId>org.reflections</groupId>
-			<artifactId>reflections</artifactId>
-			<version>${reflections.version}</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>

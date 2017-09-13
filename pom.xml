@@ -4,19 +4,17 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>pom</packaging>
+	<artifactId>system-event-utilities-parent</artifactId>
+	<version>1.1-SNAPSHOT</version>
+	<name>System Event Utilities Parent</name>
 
 	<parent>
 		<groupId>com.dell.cpsd</groupId>
 		<artifactId>root-parent</artifactId>
 		<version>1.0.1</version>
 	</parent>
-
-	<modelVersion>4.0.0</modelVersion>
-	<packaging>pom</packaging>
-	<groupId>com.dell.cpsd</groupId>
-	<artifactId>system-event-utilities-parent</artifactId>
-	<version>1.1-SNAPSHOT</version>
-	<name>Event Client Parent</name>
 
 	<licenses>
 		<license>
@@ -27,9 +25,9 @@
 
 	<!-- TODO once a repo is created -->
 	<scm>
-		<connection>scm:git:git://github.com/dellemc-symphony/sample-paqx-parent.git</connection>
-		<developerConnection>scm:git:git://github.com/dellemc-symphony/sample-paqx-parent.git</developerConnection>
-		<url>https://github.com/dellemc-symphony/sample-paqx-parent/tree/master</url>
+		<connection>scm:git:git://github.com/dellemc-symphony/system-event-utilities-parent.git</connection>
+		<developerConnection>scm:git:git://github.com/dellemc-symphony/system-event-utilities-parent.git</developerConnection>
+		<url>https://github.com/dellemc-symphony/system-event-utilities-parent/tree/master</url>
 	</scm>
 
 	<properties>
@@ -48,7 +46,6 @@
 		<hdp-capability-registry-client>0.3-SNAPSHOT</hdp-capability-registry-client>
 		<docker-maven-plugin-version>0.4.13</docker-maven-plugin-version>
 		<spring-rabbit-test.version>1.7.0.RELEASE</spring-rabbit-test.version>
-		<system-integration-starter.version>0.0.2-SNAPSHOT</system-integration-starter.version>
 		<common-dependencies.version>1.2.0</common-dependencies.version>
 		<sample-service-api.version>0.1.0</sample-service-api.version>
 		<com.dell.cpsd.common.messaging.version>2.0.0</com.dell.cpsd.common.messaging.version>
@@ -56,7 +53,7 @@
 		<io.springfox.version>2.6.1</io.springfox.version>
 		<maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
 		<jsonschema2pojo-maven-plugin.version>0.4.34</jsonschema2pojo-maven-plugin.version>
-		
+
 	</properties>
 
 	<modules>
@@ -81,10 +78,10 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-			<groupId>com.dell.cpsd.hdp.capability.registry</groupId>
-			<artifactId>hdp-capability-registry-client</artifactId>
-			<type>jar</type>
-			<version>${hdp-capability-registry-client}</version> 
+				<groupId>com.dell.cpsd.hdp.capability.registry</groupId>
+				<artifactId>hdp-capability-registry-client</artifactId>
+				<type>jar</type>
+				<version>${hdp-capability-registry-client}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
