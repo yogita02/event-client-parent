@@ -1,14 +1,12 @@
 [![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0) 
 
-# system-integration-starter
+# system-event-utilities-parent
 
 
 ## Description
-This repository contains the source code for the System Integration Starter within Dell Project Symphony. 
+This repository contains the source code for the System Event Utilities within Dell Project Symphony. 
 
-The System Integration Starter abstracts messaging logic to communicate with rabbit-mq server. The project is written in Java and is based on the Spring Boot Library.
-
-System Integration Starter is customized spring boot starter application which provides methods/APIs for the PAQXs through which they can send messages to and receive messages from intended queues.
+The System Event Utilities provides utility methods to trigger, subscribe and handle events. The project is written in Java and is based on the Spring Boot Library.
 
 ## Documentation
 
