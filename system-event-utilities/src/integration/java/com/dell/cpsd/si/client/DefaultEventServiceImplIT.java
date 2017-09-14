@@ -20,6 +20,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.dell.cpsd.event.client.EventService;
 import com.dell.cpsd.hdp.capability.registry.client.binding.config.CapabilityRegistryControlRabbitConfig;
 import com.dell.cpsd.hdp.capability.registry.client.lookup.config.CapabilityRegistryServiceRabbitConfig;
 

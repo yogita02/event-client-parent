@@ -13,7 +13,7 @@
 	<parent>
 		<groupId>com.dell.cpsd</groupId>
 		<artifactId>system-event-utilities-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1-SNAPSHOT_ESTS-132116</version>
 	</parent>
 
 	<licenses>
