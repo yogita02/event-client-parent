@@ -24,7 +24,7 @@ import com.dell.cpsd.si.consumer.listener.annotation.EnableCapabilityRegistratio
  */
 @Configuration
 @ComponentScan(basePackages = {"com.dell.cpsd.hdp.capability.registry.client", "com.dell.cpsd.si.config", "com.dell.cpsd.si.amqp.config",
-        "com.dell.cpsd.si.service","com.dell.cpsd.event.client"})
+        "com.dell.cpsd.si.service", "com.dell.cpsd.event.client"})
 @PropertySources({@PropertySource("classpath:rabbitmq.properties"), @PropertySource(value = "classpath:persistence.properties")})
 @Import({SystemIntegrationStarterConfiguration.class, CapabilityRegistryException.class})
 @EnableCapabilityRegistration

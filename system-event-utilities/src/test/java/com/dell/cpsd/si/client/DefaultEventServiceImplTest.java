@@ -23,9 +23,9 @@ public class DefaultEventServiceImplTest
     @InjectMocks
     private DefaultEventServiceImpl classUnderTest;
     @Mock
-    private RabbitTemplate   rabbitTemplate;
-    private String           eventExchange;
-    private String           eventRoutingKey;
+    private RabbitTemplate          rabbitTemplate;
+    private String                  eventExchange;
+    private String                  eventRoutingKey;
 
     /**
      * @throws java.lang.Exception

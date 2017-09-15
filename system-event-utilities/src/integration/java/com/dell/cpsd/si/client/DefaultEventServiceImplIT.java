@@ -33,7 +33,7 @@ public class DefaultEventServiceImplIT
 {
     @Autowired
     @Qualifier("capabilityRegistryServiceAmqpAdmin")
-    private AmqpAdmin                        amqpAdmin;
+    private AmqpAdmin     amqpAdmin;
     @Autowired
     private EventService  eventService;
     private String        eventExchangeName;

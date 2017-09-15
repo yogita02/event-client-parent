@@ -19,7 +19,7 @@ public class DefaultEventServiceImpl implements EventService
 {
 
     @Autowired
-    private RabbitTemplate    rabbitTemplate;
+    private RabbitTemplate rabbitTemplate;
 
     @Override
     public void triggerEvent(String eventExchange, String eventRoutingKey, Object event)
