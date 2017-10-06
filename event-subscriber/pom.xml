@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<!--Copyright &copy; 2017 Dell Inc. or its subsidiaries. All Rights Reserved. -->
+<!--Dell EMC Confidential/Proprietary Information -->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>system-event-utilities-starter</artifactId>
+	<!-- Use jar instead of war due to https://github.com/spring-projects/spring-boot/issues/7360 -->
+	<!-- We shouldn't need standalone war any way. -->
 	<packaging>jar</packaging>
-	<name>System Event Utilities Starter</name>
-	<description>System Event Utilities Starter</description>
-
+	<artifactId>event-subscriber</artifactId>
+	<name>Event Subscriber</name>
 	<parent>
 		<groupId>com.dell.cpsd</groupId>
-		<artifactId>system-event-utilities-parent</artifactId>
+		<artifactId>event-subscriber-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+
+	<licenses>
+		<license>
+			<name>Eclipse Public License - v 1.0</name>
+			<url>http://www.eclipse.org/legal/epl-v10.html</url>
+		</license>
+	</licenses>
 
 	<scm>
 		<connection>scm:git:git://github.com/dellemc-symphony/system-event-utilities-parent.git</connection>
@@ -20,10 +30,32 @@
 	</scm>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.dell.cpsd.hdp.capability.registry</groupId>
+			<artifactId>hdp-capability-registry-client</artifactId>
+			<type>jar</type>
+		</dependency>
+
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>com.dell.cpsd</groupId>
+			<artifactId>common-testing</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.dell.cpsd.system.starter</groupId>
+			<artifactId>system-integration-starter</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -37,7 +69,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>${build-helper-maven-plugin.version}</version>
+				<version>3.0.0</version>
 				<executions>
 					<execution>
 						<id>add-test-source</id>
@@ -101,4 +133,5 @@
 			</plugin>
 		</plugins>
 	</reporting>
+
 </project>

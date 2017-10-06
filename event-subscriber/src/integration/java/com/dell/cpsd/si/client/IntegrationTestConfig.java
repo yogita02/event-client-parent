@@ -12,9 +12,9 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
+import com.dell.cpsd.hdp.capability.registry.capability.annotations.EnableCapabilityRegistration;
 import com.dell.cpsd.hdp.capability.registry.client.CapabilityRegistryException;
 import com.dell.cpsd.si.config.SystemIntegrationStarterConfiguration;
-import com.dell.cpsd.si.consumer.listener.annotation.EnableCapabilityRegistration;
 
 /**
  * The class contains all the related configurations required to run integration tests
