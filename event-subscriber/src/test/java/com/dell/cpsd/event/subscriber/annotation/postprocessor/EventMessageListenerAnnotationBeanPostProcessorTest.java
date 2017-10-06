@@ -80,7 +80,7 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     MethodRabbitListenerEndpoint                    methodRabbitListenerEndpoint;
 
     @Mock
-    ICapabilityService                               capabilityService;
+    ICapabilityService                              capabilityService;
 
     @Mock
     AmqpAdmin                                       rabbitAdmin;

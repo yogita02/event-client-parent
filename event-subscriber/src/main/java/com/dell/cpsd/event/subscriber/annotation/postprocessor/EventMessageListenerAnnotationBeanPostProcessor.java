@@ -50,7 +50,7 @@ public class EventMessageListenerAnnotationBeanPostProcessor extends RabbitListe
 {
 
     @Autowired
-    private EventService        eventService;
+    private EventService eventService;
 
     /**
      * Over-riding the initialization with on application start up event.

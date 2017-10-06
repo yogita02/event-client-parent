@@ -29,7 +29,7 @@ import com.dell.cpsd.hdp.capability.registry.capability.annotations.EnableCapabi
 @ComponentScan(basePackages = {"com.dell.cpsd.hdp.capability.registry.client", "com.dell.cpsd.si.config", "com.dell.cpsd.si.amqp.config",
         "com.dell.cpsd.si.service", "com.dell.cpsd.event.client"})
 @PropertySources({@PropertySource("classpath:rabbitmq.properties"), @PropertySource(value = "classpath:persistence.properties")})
-@Import({RabbitConfig.class, PropertiesConfig.class,ConsumerConfig.class, RabbitMqProductionConfig.class,RegistrationConfig.class})
+@Import({RabbitConfig.class, PropertiesConfig.class, ConsumerConfig.class, RabbitMqProductionConfig.class, RegistrationConfig.class})
 @EnableCapabilityRegistration
 public class EventIntegrationTestConfig
 {

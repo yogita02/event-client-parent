@@ -84,8 +84,8 @@ public class EventMessageListenerIT
     @Test
     public void testEventMessageListenerAtMethodLevel() throws InterruptedException
     {
-        rabbitTemplate.convertAndSend(EventIntegrationTestCapabilityConfiguration.SAMPLE_EVENT_EXCHANGE, EventIntegrationTestCapabilityConfiguration.SAMPLE_EVENT_ROUTING_KEY,
-                "testSampleMessage");
+        rabbitTemplate.convertAndSend(EventIntegrationTestCapabilityConfiguration.SAMPLE_EVENT_EXCHANGE,
+                EventIntegrationTestCapabilityConfiguration.SAMPLE_EVENT_ROUTING_KEY, "testSampleMessage");
         Thread.sleep(5000);
         String responseMsg = (String) rabbitTemplate.receiveAndConvert("test.queue.sample.event.response", 8000);
         assertNotNull(responseMsg);
