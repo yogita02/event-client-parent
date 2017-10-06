@@ -2,7 +2,7 @@
  * Copyright &copy; 2017 Dell Inc. or its subsidiaries. All Rights Reserved. Dell EMC Confidential/Proprietary Information
  */
 
-package com.dell.cpsd.si.client;
+package com.dell.cpsd.event.client;
 
 import org.junit.After;
 import org.junit.Before;
@@ -20,13 +20,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.dell.cpsd.event.client.EventService;
 import com.dell.cpsd.hdp.capability.registry.client.binding.config.CapabilityRegistryControlRabbitConfig;
 import com.dell.cpsd.hdp.capability.registry.client.lookup.config.CapabilityRegistryServiceRabbitConfig;
 
 @RunWith(SpringRunner.class)
 @Configuration
-@ContextConfiguration(classes = {IntegrationTestConfig.class, CapabilityRegistryControlRabbitConfig.class,
+@ContextConfiguration(classes = {EventIntegrationTestConfig.class, CapabilityRegistryControlRabbitConfig.class,
         CapabilityRegistryServiceRabbitConfig.class})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DefaultEventServiceImplIT

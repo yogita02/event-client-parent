@@ -36,6 +36,10 @@
 			<artifactId>hdp-capability-registry-client</artifactId>
 			<type>jar</type>
 		</dependency>
+		<dependency>
+				<groupId>com.dell.cpsd</groupId>
+				<artifactId>hdp-capability-registry-client</artifactId>
+		</dependency>
 
 		<!-- Test Dependencies -->
 		<dependency>
@@ -52,10 +56,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.dell.cpsd.system.starter</groupId>
-			<artifactId>system-integration-starter</artifactId>
 		</dependency>
 	</dependencies>
 

@@ -1,1 +1,2 @@
-#TBD
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.dell.cpsd.si.config.EventMessageListenerBootstrapConfiguration
