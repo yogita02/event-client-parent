@@ -16,18 +16,17 @@ import com.dell.cpsd.hdp.capability.registry.client.lookup.config.CapabilityRegi
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * System Integration Initial configuration
+ * Event Subscriber Starter Initial configuration
  * <p>
  * Copyright &copy; 2017 Dell Inc. or its subsidiaries. All Rights Reserved. Dell EMC Confidential/Proprietary Information
  * </p>
  */
-// TODO: Remove the component scans for packages which are moved to respective starters
 // Exclude test classes in component scan
 @Configuration
 @ComponentScan(basePackages = {
         "com.dell.cpsd.event.client"}, excludeFilters = {
-        @Filter(type = FilterType.REGEX, pattern = "com.dell.cpsd.si.*.*Test.*"),
-        @Filter(type = FilterType.REGEX, pattern = "com.dell.cpsd.si.*.*IT.*")})
+        @Filter(type = FilterType.REGEX, pattern = "com.dell.cpsd.event.*.*Test.*"),
+        @Filter(type = FilterType.REGEX, pattern = "com.dell.cpsd.event.*.*IT.*")})
 public class EventSubscriberStarterConfiguration
 {
     /**

@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.dell.cpsd.event.config.EventMessageListenerBootstrapConfiguration
+com.dell.cpsd.event.config.EventMessageListenerBootstrapConfiguration,\
+com.dell.cpsd.event.config.EventSubscriberStarterConfiguration
