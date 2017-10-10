@@ -10,17 +10,6 @@ import com.dell.cpsd.event.exceptions.EventSubscriptionException;
 
 public interface EventService
 {
-    /**
-     * Method to trigger an event of any type.
-     * 
-     * @param eventExchange
-     *            - an event capability exchange
-     * @param eventRoutingKey
-     *            - an event capability routing key
-     * @param event
-     *            - an event to be triggered
-     */
-    void triggerEvent(String eventExchange, String eventRoutingKey, Object event);
 
     /**
      * Method to subscribe to an event capability

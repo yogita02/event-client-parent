@@ -47,17 +47,7 @@ public class DefaultEventServiceImpl implements EventService
     private RabbitTemplate                 rabbitTemplate;
 
     @Override
-    public void triggerEvent(String eventExchange, String eventRoutingKey, Object event)
-    {
-        Assert.hasText(eventExchange, "Exchange name cannot be empty");
-        Assert.hasText(eventRoutingKey, "Routing key cannot be empty");
-        Assert.notNull(event, "Event cannot be empty");
-        this.rabbitTemplate.convertAndSend(eventExchange, eventRoutingKey, event);
-    }
-
-    @Override
     public void subscribeToEvent(List<String> queues, String eventCapabilityName) throws EventSubscriptionException
-
     {
         Assert.isTrue(!CollectionUtils.isEmpty(queues), "Queue name cannot be null/empty.");
         String queueWithoutName = queues.stream().filter(Objects::nonNull).filter(queue -> !StringUtils.hasText(queue)).findFirst()

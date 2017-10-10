@@ -135,7 +135,6 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     {
         TestEventListener bean = new TestEventListener();
         String[] beanNames = {"simpleMessageListner"};
-        Mockito.when(contextRefreshedEvent.getApplicationContext()).thenReturn(abstractApplicationContext);
         Mockito.when(abstractApplicationContext.getBeanDefinitionNames()).thenReturn(beanNames);
         Mockito.when((abstractApplicationContext).getAutowireCapableBeanFactory()).thenReturn(configurableListableBeanFactory);
         Mockito.when(configurableListableBeanFactory.getBeanDefinition(Mockito.anyString())).thenReturn(beanDefinitionMock);
@@ -176,7 +175,6 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     {
         TestEventListenerWithoutCapability bean = new TestEventListenerWithoutCapability();
         String[] beanNames = {"simpleMessageListner"};
-        Mockito.when(contextRefreshedEvent.getApplicationContext()).thenReturn(abstractApplicationContext);
         Mockito.when(abstractApplicationContext.getBeanDefinitionNames()).thenReturn(beanNames);
         Mockito.when((abstractApplicationContext).getAutowireCapableBeanFactory()).thenReturn(configurableListableBeanFactory);
         Mockito.when(configurableListableBeanFactory.getBeanDefinition(Mockito.anyString())).thenReturn(beanDefinitionMock);
@@ -196,7 +194,6 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     {
         TestEventListenerWithoutQueue bean = new TestEventListenerWithoutQueue();
         String[] beanNames = {"simpleMessageListner"};
-        Mockito.when(contextRefreshedEvent.getApplicationContext()).thenReturn(abstractApplicationContext);
         Mockito.when(abstractApplicationContext.getBeanDefinitionNames()).thenReturn(beanNames);
         Mockito.when((abstractApplicationContext).getAutowireCapableBeanFactory()).thenReturn(configurableListableBeanFactory);
         Mockito.when(configurableListableBeanFactory.getBeanDefinition(Mockito.anyString())).thenReturn(beanDefinitionMock);
@@ -217,7 +214,6 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     {
         TestEventListenerWithoutTwoQueues bean = new TestEventListenerWithoutTwoQueues();
         String[] beanNames = {"simpleMessageListner"};
-        Mockito.when(contextRefreshedEvent.getApplicationContext()).thenReturn(abstractApplicationContext);
         Mockito.when(abstractApplicationContext.getBeanDefinitionNames()).thenReturn(beanNames);
         Mockito.when((abstractApplicationContext).getAutowireCapableBeanFactory()).thenReturn(configurableListableBeanFactory);
         Mockito.when(configurableListableBeanFactory.getBeanDefinition(Mockito.anyString())).thenReturn(beanDefinitionMock);
@@ -260,11 +256,9 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     {
         TestEventListener bean = new TestEventListener();
         String[] beanNames = {"simpleMessageListner"};
-        Mockito.when(contextRefreshedEvent.getApplicationContext()).thenReturn(abstractApplicationContext);
         Mockito.when(abstractApplicationContext.getBeanDefinitionNames()).thenReturn(beanNames);
         Mockito.when((abstractApplicationContext).getAutowireCapableBeanFactory()).thenReturn(configurableListableBeanFactory);
         Mockito.when(configurableListableBeanFactory.getBeanDefinition(Mockito.anyString())).thenReturn(null);
-        Mockito.when(configurableListableBeanFactory.getSingleton("simpleMessageListner")).thenReturn(bean);
 
         classUnderTest.onApplicationEvent(new ContextRefreshedEvent(abstractApplicationContext));
     }
@@ -278,7 +272,6 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     public void testOnApplicationEventWithNonSingletonBean() throws CapabilityRetrievalException
     {
         String[] beanNames = {"simpleMessageListner"};
-        Mockito.when(contextRefreshedEvent.getApplicationContext()).thenReturn(abstractApplicationContext);
         Mockito.when(abstractApplicationContext.getBeanDefinitionNames()).thenReturn(beanNames);
         Mockito.when((abstractApplicationContext).getAutowireCapableBeanFactory()).thenReturn(configurableListableBeanFactory);
         Mockito.when(configurableListableBeanFactory.getBeanDefinition(Mockito.anyString())).thenReturn(beanDefinitionMock);
@@ -297,7 +290,6 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     {
         TestEventListenerWithoutQueue bean = new TestEventListenerWithoutQueue();
         String[] beanNames = {"simpleMessageListner"};
-        Mockito.when(contextRefreshedEvent.getApplicationContext()).thenReturn(abstractApplicationContext);
         Mockito.when(abstractApplicationContext.getBeanDefinitionNames()).thenReturn(beanNames);
         Mockito.when((abstractApplicationContext).getAutowireCapableBeanFactory()).thenReturn(configurableListableBeanFactory);
         Mockito.when(configurableListableBeanFactory.getBeanDefinition(Mockito.anyString())).thenReturn(beanDefinitionMock);
@@ -319,7 +311,6 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     {
         TestEventListenerWithMethodLevelListenerClass1 bean = new TestEventListenerWithMethodLevelListenerClass1();
         String[] beanNames = {"simpleMessageListner"};
-        Mockito.when(contextRefreshedEvent.getApplicationContext()).thenReturn(abstractApplicationContext);
         Mockito.when(abstractApplicationContext.getBeanDefinitionNames()).thenReturn(beanNames);
         Mockito.when((abstractApplicationContext).getAutowireCapableBeanFactory()).thenReturn(configurableListableBeanFactory);
         Mockito.when(configurableListableBeanFactory.getBeanDefinition(Mockito.anyString())).thenReturn(beanDefinitionMock);
@@ -362,7 +353,6 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     {
         TestEventListenerWithMethodLevelListenerClass2 bean = new TestEventListenerWithMethodLevelListenerClass2();
         String[] beanNames = {"simpleMessageListner"};
-        Mockito.when(contextRefreshedEvent.getApplicationContext()).thenReturn(abstractApplicationContext);
         Mockito.when(abstractApplicationContext.getBeanDefinitionNames()).thenReturn(beanNames);
         Mockito.when((abstractApplicationContext).getAutowireCapableBeanFactory()).thenReturn(configurableListableBeanFactory);
         Mockito.when(configurableListableBeanFactory.getBeanDefinition(Mockito.anyString())).thenReturn(beanDefinitionMock);
@@ -383,7 +373,6 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     {
         TestEventListenerWithMethodLevelListenerClass3 bean = new TestEventListenerWithMethodLevelListenerClass3();
         String[] beanNames = {"simpleMessageListner"};
-        Mockito.when(contextRefreshedEvent.getApplicationContext()).thenReturn(abstractApplicationContext);
         Mockito.when(abstractApplicationContext.getBeanDefinitionNames()).thenReturn(beanNames);
         Mockito.when((abstractApplicationContext).getAutowireCapableBeanFactory()).thenReturn(configurableListableBeanFactory);
         Mockito.when(configurableListableBeanFactory.getBeanDefinition(Mockito.anyString())).thenReturn(beanDefinitionMock);
@@ -404,7 +393,6 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     {
         TestEventListener bean = new TestEventListener();
         String[] beanNames = {"simpleMessageListner"};
-        Mockito.when(contextRefreshedEvent.getApplicationContext()).thenReturn(abstractApplicationContext);
         Mockito.when(abstractApplicationContext.getBeanDefinitionNames()).thenReturn(beanNames);
         Mockito.when((abstractApplicationContext).getAutowireCapableBeanFactory()).thenReturn(configurableListableBeanFactory);
         Mockito.when(configurableListableBeanFactory.getBeanDefinition(Mockito.anyString())).thenReturn(beanDefinitionMock);
@@ -426,7 +414,6 @@ public class EventMessageListenerAnnotationBeanPostProcessorTest
     {
         TestEventListenerWithMethodLevelListenerClass1 bean = new TestEventListenerWithMethodLevelListenerClass1();
         String[] beanNames = {"simpleMessageListner"};
-        Mockito.when(contextRefreshedEvent.getApplicationContext()).thenReturn(abstractApplicationContext);
         Mockito.when(abstractApplicationContext.getBeanDefinitionNames()).thenReturn(beanNames);
         Mockito.when((abstractApplicationContext).getAutowireCapableBeanFactory()).thenReturn(configurableListableBeanFactory);
         Mockito.when(configurableListableBeanFactory.getBeanDefinition(Mockito.anyString())).thenReturn(beanDefinitionMock);

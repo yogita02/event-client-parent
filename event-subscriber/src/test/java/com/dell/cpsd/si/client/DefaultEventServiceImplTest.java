@@ -39,30 +39,28 @@ public class DefaultEventServiceImplTest
 {
 
     @InjectMocks
-    private DefaultEventServiceImpl classUnderTest;
+    private DefaultEventServiceImpl        classUnderTest;
     @Mock
-    private RabbitTemplate          rabbitTemplate;
-    private String                  eventExchange;
-    private String                  eventRoutingKey;
+    private RabbitTemplate                 rabbitTemplate;
     @Mock
-    ICapabilityService              capabilityService;
+    private ICapabilityService             capabilityService;
 
     @Mock
-    CapabilitiesAmqpEntitiesConfig  capabilitiesAmqpEntitiesConfigMock;
+    private CapabilitiesAmqpEntitiesConfig capabilitiesAmqpEntitiesConfigMock;
 
     @Captor
-    ArgumentCaptor<String>          exchangeNameCaptor;
+    private ArgumentCaptor<String>         exchangeNameCaptor;
 
     @Captor
-    ArgumentCaptor<String>          exchangeTypeCaptor;
+    private ArgumentCaptor<String>         exchangeTypeCaptor;
 
     @Captor
-    ArgumentCaptor<String>          exchangeRoutingKeyCaptor;
+    private ArgumentCaptor<String>         exchangeRoutingKeyCaptor;
 
     @Captor
-    ArgumentCaptor<List<Queue>>     queueCaptor;
+    private ArgumentCaptor<List<Queue>>    queueCaptor;
 
-    Capability                      capability;
+    private Capability                     capability;
 
     /**
      * @throws java.lang.Exception
@@ -70,8 +68,6 @@ public class DefaultEventServiceImplTest
     @Before
     public void setUp() throws Exception
     {
-        eventExchange = "test-event-exchange";
-        eventRoutingKey = "test-event-routing-key";
         capability = createCapability();
     }
 
@@ -81,92 +77,7 @@ public class DefaultEventServiceImplTest
     @After
     public void tearDown() throws Exception
     {
-        eventExchange = null;
-        eventRoutingKey = null;
-    }
-
-    /**
-     * Test method for
-     * {@link com.dell.cpsd.si.client.DefaultEventServiceImpl#triggerEvent(java.lang.String, java.lang.String, java.lang.Object)}.
-     * 
-     * This tests to throw {@link IllegalArgumentException} when event exchange is null.
-     * 
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public final void testTriggerEventForNullEventExchange()
-    {
-        Object event = new Object();
-        classUnderTest.triggerEvent(null, eventRoutingKey, event);
-    }
-
-    /**
-     * Test method for
-     * {@link com.dell.cpsd.si.client.DefaultEventServiceImpl#triggerEvent(java.lang.String, java.lang.String, java.lang.Object)}.
-     * 
-     * This tests to throw {@link IllegalArgumentException} when event exchange is empty.
-     * 
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public final void testTriggerEventForEmptyEventExchange()
-    {
-        Object event = new Object();
-        classUnderTest.triggerEvent("", eventRoutingKey, event);
-    }
-
-    /**
-     * Test method for
-     * {@link com.dell.cpsd.si.client.DefaultEventServiceImpl#triggerEvent(java.lang.String, java.lang.String, java.lang.Object)}.
-     * 
-     * This tests to throw {@link IllegalArgumentException} when event routing key is null.
-     * 
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public final void testTriggerEventForNullEventRoutingKey()
-    {
-        Object event = new Object();
-        classUnderTest.triggerEvent(eventExchange, null, event);
-    }
-
-    /**
-     * Test method for
-     * {@link com.dell.cpsd.si.client.DefaultEventServiceImpl#triggerEvent(java.lang.String, java.lang.String, java.lang.Object)}.
-     * 
-     * This tests to throw {@link IllegalArgumentException} when event routing key is empty.
-     * 
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public final void testTriggerEventForEmptyEventRoutingKey()
-    {
-        Object event = new Object();
-        classUnderTest.triggerEvent(eventExchange, "", event);
-    }
-
-    /**
-     * Test method for
-     * {@link com.dell.cpsd.si.client.DefaultEventServiceImpl#triggerEvent(java.lang.String, java.lang.String, java.lang.Object)}.
-     * 
-     * This tests to throw {@link IllegalArgumentException} when event is null.
-     * 
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public final void testTriggerEventForNullEvent()
-    {
-        classUnderTest.triggerEvent(eventExchange, eventRoutingKey, null);
-    }
-
-    /**
-     * Test method for
-     * {@link com.dell.cpsd.si.client.DefaultEventServiceImpl#triggerEvent(java.lang.String, java.lang.String, java.lang.Object)}.
-     * 
-     * Method to test valid event is sent onto the message bus.
-     * 
-     */
-    @Test
-    public final void testTriggerEventForValidEvent()
-    {
-        Object event = new Object();
-        classUnderTest.triggerEvent(eventExchange, eventRoutingKey, event);
-        Mockito.verify(rabbitTemplate).convertAndSend(eventExchange, eventRoutingKey, event);
+        capability = null;
     }
 
     /**
@@ -187,8 +98,8 @@ public class DefaultEventServiceImplTest
         Mockito.when(capabilityService.getCapability(Mockito.anyString())).thenReturn(capability);
         classUnderTest.subscribeToEvent(Arrays.asList("testQueue"), "cpu-utilization-event");
         Mockito.verify(capabilityService).getCapability("cpu-utilization-event");
-        Mockito.verify(capabilitiesAmqpEntitiesConfigMock).createAndBindExchange(exchangeNameCaptor.capture(), exchangeTypeCaptor.capture(),
-                exchangeRoutingKeyCaptor.capture(), queueCaptor.capture());
+        Mockito.verify(capabilitiesAmqpEntitiesConfigMock).createAndBindExchange(exchangeNameCaptor.capture(),
+                exchangeTypeCaptor.capture(), exchangeRoutingKeyCaptor.capture(), queueCaptor.capture());
         assertEquals("test-event-exchange", exchangeNameCaptor.getValue());
         assertEquals(ExchangeTypes.TOPIC, exchangeTypeCaptor.getValue());
         assertEquals("test-event-routing-key", exchangeRoutingKeyCaptor.getValue());
@@ -205,8 +116,8 @@ public class DefaultEventServiceImplTest
      * 
      */
     @Test(expected = IllegalArgumentException.class)
-    public final void testSubscribeToEventWithNullQueue()
-            throws CapabilityRetrievalException, CapabilityBindingException, EventSubscriptionException
+    public final void testSubscribeToEventWithNullQueue() throws CapabilityRetrievalException, CapabilityBindingException,
+            EventSubscriptionException
     {
         classUnderTest.subscribeToEvent(null, "cpu-utilization-event");
     }
@@ -220,8 +131,8 @@ public class DefaultEventServiceImplTest
      * 
      */
     @Test(expected = IllegalArgumentException.class)
-    public final void testSubscribeToEventWithEmptyQueueName()
-            throws CapabilityRetrievalException, CapabilityBindingException, EventSubscriptionException
+    public final void testSubscribeToEventWithEmptyQueueName() throws CapabilityRetrievalException, CapabilityBindingException,
+            EventSubscriptionException
     {
         classUnderTest.subscribeToEvent(Arrays.asList(""), "cpu-utilization-event");
     }
@@ -235,8 +146,8 @@ public class DefaultEventServiceImplTest
      * 
      */
     @Test(expected = IllegalArgumentException.class)
-    public final void testSubscribeToEventWithEmptyQueuesList()
-            throws CapabilityRetrievalException, CapabilityBindingException, EventSubscriptionException
+    public final void testSubscribeToEventWithEmptyQueuesList() throws CapabilityRetrievalException, CapabilityBindingException,
+            EventSubscriptionException
     {
         classUnderTest.subscribeToEvent(new ArrayList<String>(), "cpu-utilization-event");
     }
@@ -250,8 +161,8 @@ public class DefaultEventServiceImplTest
      * 
      */
     @Test(expected = IllegalArgumentException.class)
-    public final void testSubscribeToEventWithEmptyCapabilityName()
-            throws CapabilityRetrievalException, CapabilityBindingException, EventSubscriptionException
+    public final void testSubscribeToEventWithEmptyCapabilityName() throws CapabilityRetrievalException, CapabilityBindingException,
+            EventSubscriptionException
     {
         classUnderTest.subscribeToEvent(Arrays.asList("testQueue"), "");
     }
@@ -265,8 +176,8 @@ public class DefaultEventServiceImplTest
      * 
      */
     @Test(expected = IllegalArgumentException.class)
-    public final void testSubscribeToEventWithNullCapabilityName()
-            throws CapabilityRetrievalException, CapabilityBindingException, EventSubscriptionException
+    public final void testSubscribeToEventWithNullCapabilityName() throws CapabilityRetrievalException, CapabilityBindingException,
+            EventSubscriptionException
     {
         classUnderTest.subscribeToEvent(Arrays.asList("testQueue"), null);
     }
@@ -280,8 +191,8 @@ public class DefaultEventServiceImplTest
      * 
      */
     @Test(expected = EventSubscriptionException.class)
-    public final void testSubscribeToEventWithoutProviderEndpoint()
-            throws CapabilityRetrievalException, CapabilityBindingException, EventSubscriptionException
+    public final void testSubscribeToEventWithoutProviderEndpoint() throws CapabilityRetrievalException, CapabilityBindingException,
+            EventSubscriptionException
     {
         capability.setProviderEndpoint(null);
         Mockito.when(capabilityService.getCapability(Mockito.anyString())).thenReturn(capability);
@@ -298,8 +209,8 @@ public class DefaultEventServiceImplTest
      * 
      */
     @Test(expected = EventSubscriptionException.class)
-    public final void testSubscribeToEventWithoutProviderEndpointProperties()
-            throws CapabilityRetrievalException, CapabilityBindingException, EventSubscriptionException
+    public final void testSubscribeToEventWithoutProviderEndpointProperties() throws CapabilityRetrievalException,
+            CapabilityBindingException, EventSubscriptionException
     {
         capability.getProviderEndpoint().setEndpointProperties(null);
         Mockito.when(capabilityService.getCapability(Mockito.anyString())).thenReturn(capability);
@@ -316,8 +227,8 @@ public class DefaultEventServiceImplTest
      * 
      */
     @Test(expected = EventSubscriptionException.class)
-    public final void testSubscribeToEventWithEmptyProviderEndpointProperties()
-            throws CapabilityRetrievalException, CapabilityBindingException, EventSubscriptionException
+    public final void testSubscribeToEventWithEmptyProviderEndpointProperties() throws CapabilityRetrievalException,
+            CapabilityBindingException, EventSubscriptionException
     {
         capability.getProviderEndpoint().getEndpointProperties().clear();
         Mockito.when(capabilityService.getCapability(Mockito.anyString())).thenReturn(capability);
@@ -334,16 +245,16 @@ public class DefaultEventServiceImplTest
      * 
      */
     @Test(expected = EventSubscriptionException.class)
-    public final void testSubscribeToEventWithExceptionOnCreatAndBindExchange()
-            throws CapabilityRetrievalException, CapabilityBindingException, EventSubscriptionException
+    public final void testSubscribeToEventWithExceptionOnCreatAndBindExchange() throws CapabilityRetrievalException,
+            CapabilityBindingException, EventSubscriptionException
     {
         Mockito.when(capabilityService.getCapability(Mockito.anyString())).thenReturn(capability);
-        Mockito.doThrow(CapabilityBindingException.class).when(capabilitiesAmqpEntitiesConfigMock).createAndBindExchange(Mockito.any(),
-                Mockito.any(), Mockito.any(), Mockito.any());
+        Mockito.doThrow(CapabilityBindingException.class).when(capabilitiesAmqpEntitiesConfigMock)
+                .createAndBindExchange(Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any());
         classUnderTest.subscribeToEvent(Arrays.asList("testQueue"), "cpu-utilization-event");
         Mockito.verify(capabilityService).getCapability("cpu-utilization-event");
-        Mockito.verify(capabilitiesAmqpEntitiesConfigMock).createAndBindExchange(exchangeNameCaptor.capture(), exchangeTypeCaptor.capture(),
-                exchangeRoutingKeyCaptor.capture(), queueCaptor.capture());
+        Mockito.verify(capabilitiesAmqpEntitiesConfigMock).createAndBindExchange(exchangeNameCaptor.capture(),
+                exchangeTypeCaptor.capture(), exchangeRoutingKeyCaptor.capture(), queueCaptor.capture());
     }
 
     private Capability createCapability()
